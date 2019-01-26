@@ -17,9 +17,11 @@ Sentiment Analysis on Handpicked News Sources (Humor Genome Sent Analysis)
     3. Analyse relationship between sentiment and tickers
 
 -----------------------------------------------------------------
-Agenda Jan 26: Find datasets (5 Years/Hourly) for:
-    1. USD ⇔ Top 8 Currencies 
-    2. S&P / NASDAQ / Dow Jones
+Agenda Jan 26
+
+Found datasets for exchange rates per min (2018) between USD and a variety of countries
+TODO:   1. Locate data and aggregate in 'data' folder, push to git (Tunlee)
+        2. Clean dataset from per min to per 10min (Will)
 
 
 

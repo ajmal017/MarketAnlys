@@ -1,0 +1,28 @@
+Mapping USD value to market fluctuation
+-----------------------------------------------------------------
+Currency Exchange (Top 8 most tradable)
+    USD ⇔ Pound
+    USD ⇔ Yuan
+    USD ⇔  Yen
+    USD ⇔ Euro
+    USD ⇔  Swiss Franc
+    USD ⇔ CAD (Canadian dollar) 
+    USD ⇔ AUD/NZD
+    USD ⇔ South African Rand (ZAR) 
+    S&P / NASDAQ / Dow Jones
+
+Sentiment Analysis on Handpicked News Sources (Humor Genome Sent Analysis)
+    1. Handpick unbiased financial news providers
+    2. Run sentiment analysis on news, track tickers mentioned (Simple pos/neg sentiment)
+    3. Analyse relationship between sentiment and tickers
+
+-----------------------------------------------------------------
+Agenda Jan 26: Find datasets (5 Years/Hourly) for:
+    1. USD ⇔ Top 8 Currencies 
+    2. S&P / NASDAQ / Dow Jones
+
+
+
+
+
+

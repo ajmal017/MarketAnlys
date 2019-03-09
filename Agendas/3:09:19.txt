@@ -1,0 +1,25 @@
+3-09
+
+Take fundamental properties of stocks from 2018
+
+Find all stocks with high growth rates within a month 
+
+get the fundamental data for these stocks
+    
+moving day average     start price      e/p    beta   |  Trends(0-5)     sentimental analysis(good, bad)  |     growth (0-3)
+1231                    123                           |                          news sources             |
+123213                   2123                         |                                                   |
+1231                                                  |                                                   |
+
+input fundamentals to model 
+FINE TUNE MODEL
+
+model spits out predicted growth (%)
+Microsoft
+Apple
+Steel
+
+
+buy microsoft buy apple buy steel
+
+

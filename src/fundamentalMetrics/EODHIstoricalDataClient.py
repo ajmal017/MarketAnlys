@@ -9,7 +9,7 @@ data = webdata.json()
 
 df = pd.DataFrame()
 
-dateList = ["2017-04-30", "2017-07-31", "2017-10-31", "2018-01-31", "2018-04-30", "2018-07-31", "2018-10-31", "2019-01-31"]
+dateList = ["2018-04-30", "2018-07-31", "2018-10-31", "2019-01-31"]
 
 dateList = [item for item in data["Earnings"]["History"] if item in dateList]
 dateList.reverse()
@@ -25,29 +25,33 @@ growthList = [data["Earnings"]["Trend"][item]["growth"] for item in data['Earnin
 growthList.reverse()
 df['growth'] = growthList
 
-price_df = pd.read_csv("../A.csv")
+price_df = pd.read_csv("../../res/fullCSVs/A.csv")
 
 dateDict = {
-    "4/30/17": ["2017-04-30"], 
-    "7/31/17": ["2017-07-31"], 
-    "10/31/17": ["2017-10-31"], 
-    "1/31/18": ["2018-01-31"], 
-    "4/30/18": ["2018-04-30"], 
-    "7/31/18": ["2018-07-31"], 
-    "10/31/18": ["2018-10-31"], 
-    "1/31/19": ["2019-01-31"]}
+    "4/30/2018": ["2018-04-30"], 
+    "7/31/2018": ["2018-07-31"], 
+    "10/31/2018": ["2018-10-31"], 
+    "1/31/2019": ["2019-01-31"]}
 for item in dateDict:
     dateDict[item].append((df.loc[df['Date'] == dateDict[item][0], 'growth']).values[0])
+    dateDict[item].append((df.loc[df['Date'] == dateDict[item][0], 'epsActual']).values[0])
 
+# print(dateDict.keys())
+# price_list = price_df[price_df['date'].isin(dateDict.keys())]['close'].tolist()
+# print(price_list)
+# print(df.head())
+# df['close'] = price_list
 
-price_list = price_df.loc[price_df['date'].isin(dateDict.keys())]["close"].tolist()
-
-df['close'] = ["N/A", "N/A", "N/A", "N/A"] + price_list
 
 price_df["P/E"] = 0
+price_df["EPS"] = 0
+price_df['PEG'] = 0
 
+print(df.head())
 for date in dateDict.keys():
-    price_df.loc[price_df['date']==date, 'P/E'] = df.loc[df['Date'] == dateDict[date][0], 'growth'].values[0]
+    price_df.loc[price_df['date'] == date, 'P/E'] = price_df.loc[price_df['date']==date, 'close'].values[0] / float(df.loc[df['Date'] == dateDict[date][0], 'epsActual'].values[0])
+    price_df.loc[price_df['date'] == date, 'EPS'] = df.loc[df['Date'] == dateDict[date][0], 'epsActual'].values[0]
+    price_df.loc[price_df['date'] == date, 'PEG'] = (price_df.loc[price_df['date'] == date, 'P/E'].values[0]) / float(df.loc[df['Date'] == dateDict[item][0], 'growth'].values[0])
 
 price_df.to_csv("newA.csv")
 
